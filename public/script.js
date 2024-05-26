@@ -6,7 +6,7 @@ async function getProjectIdeaFromAPI(frontend, backend, domain, additionalInput)
     }
 
     try {
-        const response = await fetch(`/generate-project-idea?frontend=${encodeURIComponent(frontend)}&backend=${encodeURIComponent(backend)}&domain=${encodeURIComponent(domain)}&additionalInput=${encodeURIComponent(additionalInput)}`);
+        const response = await fetch(`/api/generate-project-idea?frontend=${encodeURIComponent(frontend)}&backend=${encodeURIComponent(backend)}&domain=${encodeURIComponent(domain)}&additionalInput=${encodeURIComponent(additionalInput)}`);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -27,7 +27,7 @@ async function getProjectIdeaFromAPI(frontend, backend, domain, additionalInput)
         canRequest = false;
         setTimeout(() => {
             canRequest = true;
-        }, 60000); // Rate limit: 1 minute
+        }, 30000); // Rate limit: 1 minute
     }
 }
 

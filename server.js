@@ -5,12 +5,11 @@ const path = require("path");
 require("dotenv").config();
 
 const app = express();
-const port = process.env.PORT || 3001;
 
 app.use(cors());
 app.use(express.static(path.join(__dirname, "public")));
 
-app.get("/generate-project-idea", async (req, res) => {
+app.get("/api/generate-project-idea", async (req, res) => {
     const frontend = req.query.frontend || 'HTML, CSS, JavaScript';
     const backend = req.query.backend || 'Node.js';
     const domain = req.query.domain || 'General';
@@ -79,6 +78,4 @@ Use only the appropriate JSON syntax. Make sure you don't include anything other
     }
 });
 
-app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
-});
+module.exports = app;
