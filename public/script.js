@@ -27,7 +27,7 @@ async function getProjectIdeaFromAPI(frontend, backend, domain, additionalInput)
         canRequest = false;
         setTimeout(() => {
             canRequest = true;
-        }, 30000); // Rate limit: 1 minute
+        }, 10); // Rate limit: 1 minute
     }
 }
 
